@@ -1,4 +1,4 @@
-name: Build Toasty Client
+
 on:
   push:
   workflow_dispatch:
