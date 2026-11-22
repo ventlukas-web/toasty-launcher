@@ -9,6 +9,10 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Zip entpacken
+        shell: bash
+        run: |
+          if [ -f toasty-launcher.zip ]; then unzip -oq toasty-launcher.zip && cp -rf toasty-launcher/. . ; fi
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
