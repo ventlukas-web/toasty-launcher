@@ -24,7 +24,7 @@ jobs:
         run: |
           mkdir -p out/bundled
           gh release download latest -R ventlukas-web/toasty-client -p "toasty-client-*.jar" -D bundled_tmp || true
-          J=$(ls bundled_tmp/toasty-client-*.jar 2>/dev/null | grep -v -e sources -e dev | head -1)
+          J=$(ls bundled_tmp/toasty-client-*.jar 2>/dev/null | grep -v -e sources -e dev | head -1 || true)
           if [ -n "$J" ]; then cp "$J" out/bundled/toasty-client.jar; else echo "Kein Client-Release gefunden, Launcher laedt ihn spaeter."; fi
       - name: Compile
         shell: bash
