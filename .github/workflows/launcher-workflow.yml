@@ -1,6 +1,9 @@
 name: Build Toasty Launcher
 on:
   push:
+    paths-ignore:
+      - 'poldi-launcher/**'
+      - '.github/workflows/poldi-launcher.yml'
   workflow_dispatch:
 permissions:
   contents: write
