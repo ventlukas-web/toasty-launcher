@@ -54,5 +54,6 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh release delete poldi-launcher-latest --yes --cleanup-tag || true
-          gh release create poldi-launcher-latest PoldiClient-windows.zip dist/poldi-launcher.jar rel/*.jar \
+          shopt -s nullglob; MODJAR=(rel/*.jar)
+          gh release create poldi-launcher-latest PoldiClient-windows.zip dist/poldi-launcher.jar "${MODJAR[@]}" \
             --title "Poldi Client" --notes "Poldi Client Launcher: ZIP entpacken, PoldiClient.exe starten. Hauptversion 26.2 mit Poldi Client Mod, alle anderen Versionen mit Fabric."
